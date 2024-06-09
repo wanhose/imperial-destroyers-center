@@ -1,4 +1,5 @@
 import { useLoaderData } from '@tanstack/react-router';
+import { Card } from 'components/Card';
 import { Search } from 'components/Search';
 
 import classes from './common.module.scss';
@@ -11,7 +12,11 @@ export default function Vehicles(): JSX.Element {
       <h1>Vehicles</h1>
       <div className={classes.container}>
         <Search placeholder="Search for a vehicle" />
-        <div className={classes.grid}>{JSON.stringify(data)}</div>
+        <div className={classes.grid}>
+          {data.results.map((item) => (
+            <Card imgUrl={`/vehicles/${item.uid}.png`} key={item.uid} title={item.name} />
+          ))}
+        </div>
       </div>
     </>
   );
