@@ -32,7 +32,10 @@ function createTestRouter(component: () => JSX.Element) {
   });
 
   const router = createRouter({
-    history: createMemoryHistory(),
+    history: createMemoryHistory({
+      initialEntries: ['/', '/starships', '/vehicles'],
+      initialIndex: 0,
+    }),
     routeTree: rootRoute.addChildren([planetsRoute, starshipsRoute, vehiclesRoute]),
   });
 

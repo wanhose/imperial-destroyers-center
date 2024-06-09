@@ -1,3 +1,14 @@
+import { useLoaderData } from '@tanstack/react-router';
+
+import classes from './common.module.css';
+
 export default function Starships(): JSX.Element {
-  return <div>Starships</div>;
+  const data = useLoaderData({ from: '/starships' });
+
+  return (
+    <>
+      <h1>Starships</h1>
+      <div className={classes.grid}>{JSON.stringify(data)}</div>
+    </>
+  );
 }
