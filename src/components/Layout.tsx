@@ -43,7 +43,9 @@ export default function Layout(props: LayoutProps): JSX.Element {
           Vehicles <span>•</span>
         </Link>
       </aside>
-      <main className={classes.content}>{children}</main>
+      <main className={classes.content}>
+        <div className={classes.maxWidth}>{children}</div>
+      </main>
       <footer className={classes.footer}>
         <span className={classes.footerText}>&quot;{phrases[index]}&quot;</span>
       </footer>
