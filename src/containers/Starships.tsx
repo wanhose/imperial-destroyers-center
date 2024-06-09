@@ -1,5 +1,6 @@
 import { useLoaderData } from '@tanstack/react-router';
 import { Card } from 'components/Card';
+import { Pagination } from 'components/Pagination';
 import { Search } from 'components/Search';
 
 import classes from './common.module.scss';
@@ -17,6 +18,13 @@ export default function Starships(): JSX.Element {
             <Card imgUrl={`/starships/${item.uid}.png`} key={item.uid} title={item.name} />
           ))}
         </div>
+        {data.total_pages && data.total_records ? (
+          <Pagination
+            itemType="starship"
+            totalPages={data.total_pages}
+            totalRecords={data.total_records}
+          />
+        ) : null}
       </div>
     </>
   );
