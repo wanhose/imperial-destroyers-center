@@ -37,6 +37,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
     <div className={classes.layout}>
       <header className={classes.header}>
         <span>Imperial Destroyers Center</span>
+        <img alt="Sheev Palpatine" className={classes.avatar} src="/avatar.png" />
       </header>
       <aside className={classes.sidebar}>
         <Link to="/">
