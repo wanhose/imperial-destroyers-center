@@ -1,6 +1,6 @@
 import { useLoaderData } from '@tanstack/react-router';
 
-import classes from './common.module.css';
+import classes from './common.module.scss';
 
 export default function Starships(): JSX.Element {
   const data = useLoaderData({ from: '/starships' });
