@@ -1,5 +1,6 @@
 import { screen, waitFor } from '@testing-library/react';
 import { renderWithContext } from 'tests/utils';
+
 import Layout from '../Layout';
 
 test('renders content, footer, header and sidebar', async () => {
