@@ -1,5 +1,5 @@
-import { Link } from '@tanstack/react-router';
-import { type ReactNode, useEffect, useState } from 'react';
+import { Link, useLocation } from '@tanstack/react-router';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 import classes from './Layout.module.scss';
 
@@ -15,17 +15,23 @@ const phrases = [
 
 export default function Layout(props: LayoutProps): JSX.Element {
   const { children } = props;
-  const [index, setIndex] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const { pathname } = useLocation();
+  const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
+    const intervalId = window.setInterval(() => {
       setIndex((index + 1) % phrases.length);
     }, 3000);
 
     return () => {
-      clearInterval(interval);
+      clearInterval(intervalId);
     };
   }, [index]);
+
+  useEffect(() => {
+    contentRef.current?.scrollTo?.({ top: 0 });
+  }, [pathname]);
 
   return (
     <div className={classes.layout}>
@@ -43,7 +49,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
           Vehicles <span>•</span>
         </Link>
       </aside>
-      <main className={classes.content}>
+      <main className={classes.content} ref={contentRef}>
         <div className={classes.maxWidth}>{children}</div>
       </main>
       <footer className={classes.footer}>
