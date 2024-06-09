@@ -1,0 +1,13 @@
+.container {
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
