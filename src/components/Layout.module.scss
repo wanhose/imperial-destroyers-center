@@ -1,3 +1,5 @@
+@import '../styles/breakpoints.scss';
+
 @keyframes fade-in-out {
   0% {
     opacity: 0;
@@ -17,9 +19,13 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin-left: 200px;
+  margin-left: 110px;
   overflow-y: auto;
   padding: 16px;
+
+  @include respond-to('small') {
+    margin-left: 200px;
+  }
 }
 
 .footer {
@@ -74,7 +80,7 @@
   padding: 16px;
   position: absolute;
   top: 60px;
-  width: 200px;
+  width: 110px;
 
   a {
     color: #d4f5f5;
@@ -96,5 +102,9 @@
         display: inline;
       }
     }
+  }
+
+  @include respond-to('small') {
+    width: 200px;
   }
 }
